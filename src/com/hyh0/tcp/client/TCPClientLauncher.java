@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class TCPClientLauncher {
     public static void main(String[] args) {
+        // 获取地址端口
         String address;
         Scanner keyboardInput = new Scanner(System.in);
         int port;
@@ -25,15 +26,15 @@ public class TCPClientLauncher {
 
         try {
             TCPClient client = new TCPClient(address, port);
-            client.addListener(s -> {System.out.println("-> " + s); return true;});
+            client.addHandler((c, s) -> {System.out.println("-> " + s); return true;});
             client.startEventLoop();
             System.out.println("已连接" + address + ":" + port);
-            while (!client.isClosed()) {
+            while (client.isActive()) {
                 String input = keyboardInput.nextLine();
                 if (input != null && !"".equals(input))
                     client.sendMessage(input);
             }
-            client.close();
+            System.out.println("已断开连接");
         } catch (IOException e) {
             e.printStackTrace();
         }
