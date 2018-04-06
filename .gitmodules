@@ -1,11 +1,5 @@
-[submodule "com"]
-	path = com
-	url = git@github.com:heyuhang0/FS-TCP-Socket.git
 [submodule "src/FS-TCP-Socket"]
 	path = src/FS-TCP-Socket
-	url = git@github.com:heyuhang0/FS-TCP-Socket.git
-[submodule "FS-TCP-Socket"]
-	path = FS-TCP-Socket
 	url = git@github.com:heyuhang0/FS-TCP-Socket.git
 [submodule "src/com/hyh0/fstcpsocket"]
 	path = src/com/hyh0/fstcpsocket
